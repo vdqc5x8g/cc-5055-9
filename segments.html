@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>多段标定编辑器 · 可移动镜面</title>
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <h1>多段标定编辑器 · 可移动镜面</h1>
+        <p class="sub">同一镜面建立两个活动区段并锁定共享镜框；从镜框两侧分别录入观测，分段标定随镜面换位各自维护</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span id="solveState" class="pill idle">未求解</span>
+      <button id="compareBtn" class="ghost">联合拟合对照</button>
+      <button id="solveBtn" class="primary">求解 · 衔接分段解</button>
+    </div>
+  </header>
+
+  <section class="timeline-panel">
+    <canvas id="timeline" aria-label="区段时间线"></canvas>
+    <div class="timeline-foot">
+      <div class="frame-ctrl">
+        <button id="prevFrame" class="ghost">◀</button>
+        <span id="frameLabel" class="mono">帧 0 / 23</span>
+        <button id="nextFrame" class="ghost">▶</button>
+      </div>
+      <div class="timeline-legend">
+        <span><i class="sw seg-ok"></i>区段（正常）</span>
+        <span><i class="sw seg-stale"></i>过期</span>
+        <span><i class="sw occ"></i>演员遮挡</span>
+        <span><i class="sw dist"></i>手性干扰</span>
+        <span><i class="sw exit"></i>右侧出画</span>
+        <span><i class="sw kink"></i>折角</span>
+        <span><i class="sw move"></i>镜面换位</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="layout">
+    <section class="viewport-panel">
+      <div class="viewport-head">
+        <div class="overlay-toggles">
+          <label><input type="checkbox" id="tglDirect" checked /> 直接标记</label>
+          <label><input type="checkbox" id="tglMirror" checked /> 镜中标记</label>
+          <label><input type="checkbox" id="tglRail" checked /> 穿框直线与折角</label>
+          <label><input type="checkbox" id="tglDistractor" checked /> 干扰标记</label>
+          <label><input type="checkbox" id="tglTruth" /> 真值镜框</label>
+        </div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="view" aria-label="分段标定预览"></canvas>
+        <div id="viewHint" class="view-hint"></div>
+      </div>
+      <div id="alertBar" class="alert-bar hidden"></div>
+    </section>
+
+    <aside class="controls">
+      <details open>
+        <summary>观测录入（镜框两侧分别录入）</summary>
+        <div class="ctrl-actions">
+          <button id="recLeft" class="ghost">录入左侧·当前帧</button>
+          <button id="recRight" class="ghost">录入右侧·当前帧</button>
+        </div>
+        <div class="ctrl-actions">
+          <button id="recAll" class="ghost">录入全部帧（两侧）</button>
+        </div>
+        <p class="hint" id="recordInfo">尚未录入。</p>
+      </details>
+
+      <details open>
+        <summary>共享镜框（锁定）</summary>
+        <div class="ctrl-grid">
+          <label class="chk"><input type="checkbox" id="lockFrame" checked disabled /> 锁定共享镜框</label>
+        </div>
+        <div id="frameInfo" class="result-body muted">—</div>
+      </details>
+
+      <details open>
+        <summary>区段</summary>
+        <div id="segmentCards" class="seg-cards"></div>
+      </details>
+
+      <details>
+        <summary>场景事件</summary>
+        <div id="eventList" class="event-list"></div>
+      </details>
+
+      <details open>
+        <summary>合成层隔离状态</summary>
+        <div id="layerChips" class="layer-chips"></div>
+      </details>
+
+      <div class="ctrl-actions">
+        <button id="saveBtn" class="ghost">保存工程</button>
+        <button id="loadBtn" class="ghost">载入工程</button>
+      </div>
+      <input type="file" id="fileInput" accept="application/json" hidden />
+    </aside>
+  </main>
+
+  <section class="results">
+    <div class="result-col">
+      <h2>区段求解表</h2>
+      <div class="table-wrap"><table id="segmentTable"><thead><tr><th>区段</th><th>范围</th><th>状态</th><th>RMS px</th><th>法线误差°</th><th>中心误差 m</th></tr></thead><tbody></tbody></table></div>
+      <div id="diagPanel" class="diag-wrap"></div>
+    </div>
+    <div class="result-col">
+      <h2>穿框直线折角检测</h2>
+      <div id="kinkPanel" class="result-body muted">尚未检测。</div>
+      <h2 style="margin-top:14px">从两侧拖回校验 · 虚像误差</h2>
+      <div id="viePanel" class="result-body muted">尚未求解。</div>
+    </div>
+    <div class="result-col">
+      <h2>联合拟合 vs 共享锚衔接（对照后选定）</h2>
+      <div id="comparePanel" class="result-body muted">点击“联合拟合对照”运行两种实现并比较。</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>交互入口：本窗口（图形界面）。命令行自检：<code>npm run segments</code>。单镜面跟踪窗口：<a href="./index.html">index.html</a>。</span>
+  </footer>
+</div>
+<script type="module" src="./src/ui/segments.js"></script>
+</body>
+</html>

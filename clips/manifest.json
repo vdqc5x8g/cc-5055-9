@@ -60,7 +60,7 @@
       "file": "mirror-arc-00.png",
       "checkFile": "check-mirror-arc-00.png",
       "seed": 100,
-      "elapsedMs": 95.6,
+      "elapsedMs": 31.1,
       "ok": true,
       "truth": {
         "camera": {
@@ -1008,7 +1008,7 @@
       "file": "mirror-arc-01.png",
       "checkFile": "check-mirror-arc-01.png",
       "seed": 101,
-      "elapsedMs": 47.3,
+      "elapsedMs": 19.1,
       "ok": true,
       "truth": {
         "camera": {
@@ -1956,7 +1956,7 @@
       "file": "mirror-arc-02.png",
       "checkFile": "check-mirror-arc-02.png",
       "seed": 102,
-      "elapsedMs": 18.2,
+      "elapsedMs": 10.4,
       "ok": true,
       "truth": {
         "camera": {
@@ -2904,7 +2904,7 @@
       "file": "mirror-arc-03.png",
       "checkFile": "check-mirror-arc-03.png",
       "seed": 103,
-      "elapsedMs": 21.8,
+      "elapsedMs": 9.6,
       "ok": true,
       "truth": {
         "camera": {
@@ -3852,7 +3852,7 @@
       "file": "mirror-arc-04.png",
       "checkFile": "check-mirror-arc-04.png",
       "seed": 104,
-      "elapsedMs": 9.3,
+      "elapsedMs": 9.5,
       "ok": true,
       "truth": {
         "camera": {
@@ -4800,7 +4800,7 @@
       "file": "mirror-arc-05.png",
       "checkFile": "check-mirror-arc-05.png",
       "seed": 105,
-      "elapsedMs": 16.5,
+      "elapsedMs": 10.8,
       "ok": true,
       "truth": {
         "camera": {
@@ -5748,7 +5748,7 @@
       "file": "mirror-arc-06.png",
       "checkFile": "check-mirror-arc-06.png",
       "seed": 106,
-      "elapsedMs": 24.2,
+      "elapsedMs": 9.1,
       "ok": true,
       "truth": {
         "camera": {
@@ -6693,7 +6693,7 @@
       "file": "mirror-arc-07.png",
       "checkFile": "check-mirror-arc-07.png",
       "seed": 107,
-      "elapsedMs": 13.8,
+      "elapsedMs": 7.4,
       "ok": true,
       "truth": {
         "camera": {
@@ -7634,7 +7634,7 @@
       "file": "mirror-arc-08.png",
       "checkFile": "check-mirror-arc-08.png",
       "seed": 108,
-      "elapsedMs": 11.9,
+      "elapsedMs": 4.4,
       "ok": true,
       "truth": {
         "camera": {
@@ -8578,7 +8578,7 @@
       "file": "mirror-arc-09.png",
       "checkFile": "check-mirror-arc-09.png",
       "seed": 109,
-      "elapsedMs": 17.4,
+      "elapsedMs": 3.9,
       "ok": true,
       "truth": {
         "camera": {
@@ -10466,7 +10466,7 @@
       "file": "mirror-arc-11.png",
       "checkFile": "check-mirror-arc-11.png",
       "seed": 111,
-      "elapsedMs": 4.2,
+      "elapsedMs": 4,
       "ok": true,
       "truth": {
         "camera": {
@@ -11410,7 +11410,7 @@
       "file": "mirror-arc-12.png",
       "checkFile": "check-mirror-arc-12.png",
       "seed": 112,
-      "elapsedMs": 13.4,
+      "elapsedMs": 3.4,
       "ok": true,
       "truth": {
         "camera": {
@@ -12354,7 +12354,7 @@
       "file": "mirror-arc-13.png",
       "checkFile": "check-mirror-arc-13.png",
       "seed": 113,
-      "elapsedMs": 9.7,
+      "elapsedMs": 4,
       "ok": true,
       "truth": {
         "camera": {
@@ -13295,7 +13295,7 @@
       "file": "mirror-arc-14.png",
       "checkFile": "check-mirror-arc-14.png",
       "seed": 114,
-      "elapsedMs": 7.1,
+      "elapsedMs": 4.2,
       "ok": true,
       "truth": {
         "camera": {
@@ -14236,7 +14236,7 @@
       "file": "mirror-arc-15.png",
       "checkFile": "check-mirror-arc-15.png",
       "seed": 115,
-      "elapsedMs": 6,
+      "elapsedMs": 3.8,
       "ok": true,
       "truth": {
         "camera": {
@@ -15174,7 +15174,7 @@
       "file": "missing-direct-00.png",
       "checkFile": "check-missing-direct-00.png",
       "seed": 116,
-      "elapsedMs": 9.8,
+      "elapsedMs": 3.3,
       "ok": true,
       "truth": {
         "camera": {
@@ -16115,7 +16115,7 @@
       "file": "missing-direct-01.png",
       "checkFile": "check-missing-direct-01.png",
       "seed": 117,
-      "elapsedMs": 8.8,
+      "elapsedMs": 3.8,
       "ok": true,
       "truth": {
         "camera": {
@@ -17056,7 +17056,7 @@
       "file": "missing-direct-02.png",
       "checkFile": "check-missing-direct-02.png",
       "seed": 118,
-      "elapsedMs": 14.6,
+      "elapsedMs": 4.6,
       "ok": true,
       "truth": {
         "camera": {
@@ -17968,7 +17968,7 @@
       "file": "missing-direct-03.png",
       "checkFile": "check-missing-direct-03.png",
       "seed": 119,
-      "elapsedMs": 11.3,
+      "elapsedMs": 4,
       "ok": true,
       "truth": {
         "camera": {
@@ -18880,7 +18880,7 @@
       "file": "missing-direct-04.png",
       "checkFile": "check-missing-direct-04.png",
       "seed": 120,
-      "elapsedMs": 8.1,
+      "elapsedMs": 3.8,
       "ok": true,
       "truth": {
         "camera": {
@@ -19792,7 +19792,7 @@
       "file": "missing-direct-05.png",
       "checkFile": "check-missing-direct-05.png",
       "seed": 121,
-      "elapsedMs": 4.1,
+      "elapsedMs": 4.2,
       "ok": true,
       "truth": {
         "camera": {
@@ -20704,7 +20704,7 @@
       "file": "missing-direct-06.png",
       "checkFile": "check-missing-direct-06.png",
       "seed": 122,
-      "elapsedMs": 12.7,
+      "elapsedMs": 3.8,
       "ok": true,
       "truth": {
         "camera": {
@@ -21616,7 +21616,7 @@
       "file": "missing-direct-07.png",
       "checkFile": "check-missing-direct-07.png",
       "seed": 123,
-      "elapsedMs": 11.6,
+      "elapsedMs": 4.1,
       "ok": true,
       "truth": {
         "camera": {
@@ -22528,7 +22528,7 @@
       "file": "missing-direct-08.png",
       "checkFile": "check-missing-direct-08.png",
       "seed": 124,
-      "elapsedMs": 10.5,
+      "elapsedMs": 4.1,
       "ok": true,
       "truth": {
         "camera": {
@@ -23437,7 +23437,7 @@
       "file": "missing-direct-09.png",
       "checkFile": "check-missing-direct-09.png",
       "seed": 125,
-      "elapsedMs": 8.1,
+      "elapsedMs": 3.2,
       "ok": true,
       "truth": {
         "camera": {
