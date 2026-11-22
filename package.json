@@ -1,0 +1,13 @@
+{
+  "name": "mirror-compositor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Planar-mirror matchmove and compositing geometry tool",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "verify": "node scripts/cli.mjs",
+    "clips": "node scripts/clips.mjs",
+    "test": "node --test tests/*.test.js"
+  }
+}

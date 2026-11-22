@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>镜面合成 · 镜头跟踪窗口</title>
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <h1>镜面合成 · 镜头跟踪窗口</h1>
+        <p class="sub">基于已知场景约束求解相机与平面镜，校验反射位置与几何误差</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span id="solveState" class="pill idle">未求解</span>
+      <button id="solveBtn" class="primary">求解镜面合成</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="viewport-panel">
+      <div class="viewport-head">
+        <div class="segmented" role="tablist" aria-label="视图模式">
+          <button class="seg active" data-view="composite">合成视图</button>
+          <button class="seg" data-view="camera">相机视图</button>
+          <button class="seg" data-view="top">俯视图</button>
+        </div>
+        <div class="overlay-toggles">
+          <label><input type="checkbox" id="tglRays" checked /> 光线路径</label>
+          <label><input type="checkbox" id="tglDirect" checked /> 直接射线</label>
+          <label><input type="checkbox" id="tglMirror" checked /> 镜面射线</label>
+          <label><input type="checkbox" id="tglTruth" /> 显示真值轮廓</label>
+        </div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="view" aria-label="镜面合成预览"></canvas>
+        <div id="viewHint" class="view-hint"></div>
+      </div>
+      <div id="alertBar" class="alert-bar hidden"></div>
+    </section>
+
+    <aside class="controls">
+      <details open>
+        <summary>镜面约束</summary>
+        <div class="ctrl-grid">
+          <label>面板中心 X<input type="number" id="mx" step="0.05" value="0" /></label>
+          <label>面板中心 Y<input type="number" id="my" step="0.05" value="1.02" /></label>
+          <label>面板中心 Z<input type="number" id="mz" step="0.05" value="0" /></label>
+          <label>偏航 yaw°<input type="number" id="myaw" step="0.5" value="0" /></label>
+          <label>俯仰 tilt°<input type="number" id="mtilt" step="0.5" value="0.6" /></label>
+          <label>宽 m<input type="number" id="mw" step="0.05" value="1.5" /></label>
+          <label>高 m<input type="number" id="mh" step="0.05" value="2.0" /></label>
+          <label class="chk"><input type="checkbox" id="lockPos" /> 锁定面内位置</label>
+        </div>
+        <p class="hint">反射观测只约束镜面“平面”，不能确定面板在其平面内的横向位置；位置由约束给定或用命中点质心估计。</p>
+      </details>
+
+      <details open>
+        <summary>求解选项</summary>
+        <div class="ctrl-grid">
+          <label class="chk"><input type="checkbox" id="fixF" /> 固定焦距</label>
+          <label>焦距 f (px)<input type="number" id="fval" step="10" value="1150" /></label>
+          <label>噪声 σ (px)<input type="number" id="sigma" step="0.1" value="0.5" /></label>
+          <label>直接缺失比例<input type="range" id="missing" min="0" max="0.9" step="0.05" value="0" /><output id="missingOut">0%</output></label>
+          <label class="chk"><input type="checkbox" id="refit" checked /> 联合精化</label>
+        </div>
+      </details>
+
+      <details open>
+        <summary>虚拟物体</summary>
+        <div class="ctrl-grid">
+          <label>接触点 X<input type="number" id="ax" step="0.05" value="0.42" /></label>
+          <label>接触点 Z<input type="number" id="az" step="0.05" value="0.95" /></label>
+          <label>偏航°<input type="number" id="ayaw" step="1" value="-20" /></label>
+        </div>
+        <p class="hint">接触点固定在地面 (y=0)；尺度按场景单位（米）显示，不代表无依据的绝对距离。</p>
+      </details>
+
+      <div class="ctrl-actions">
+        <button id="presetConstraint" class="ghost">填入约束预设</button>
+        <button id="presetNoConstraint" class="ghost">无约束求解</button>
+      </div>
+    </aside>
+  </main>
+
+  <section class="results">
+    <div class="result-col">
+      <h2>求解结果</h2>
+      <div id="resultSummary" class="result-body muted">点击“求解镜面合成”以计算相机、镜面与反射几何。</div>
+    </div>
+    <div class="result-col">
+      <h2>反射位置与几何误差</h2>
+      <div class="table-wrap"><table id="errorTable"><thead><tr><th>标记</th><th>反射 RMS px</th><th>命中点</th><th>状态</th></tr></thead><tbody></tbody></table></div>
+    </div>
+    <div class="result-col">
+      <h2>分支与诊断</h2>
+      <div id="branchBody" class="result-body muted">尚未评估分支。</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>交互入口：本窗口（图形界面）。命令行仅提供同源求解与自检：<code>npm run verify</code>。</span>
+  </footer>
+</div>
+<script type="module" src="./src/ui/main.js"></script>
+</body>
+</html>
